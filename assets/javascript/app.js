@@ -10,7 +10,7 @@ function renderButtons() {
         var button = $('<button>');
         var buttonClasses = {
             type: "button",
-            class: "btn btn-default"
+            class: "btn btn-default team"
         }
 
         // Need to add the data-team value to the button along with the Bootstrap classes and text
