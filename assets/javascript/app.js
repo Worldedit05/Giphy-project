@@ -1,4 +1,4 @@
-var topics = ['Auburn Tigers', 'Alabama Crimson Tide', 'LSU Tigers', 'Georgia Bulldogs', 'Tennessee Volunteers', 'Ole Miss Rebels', 'South Carolina Gamecocks', 'Arkansas Razorbacks', 'Kentucky Wildcats', 'Missouri Tigers', 'Mississippi State Bulldogs', 'Texas A&M Aggies', 'Florida Gators', 'Vanderbilt Commodores']
+var topics = ['Auburn Tigers','Texas Longhorns', 'Alabama Crimson Tide', 'LSU Tigers', 'Georgia Bulldogs', 'Tennessee Volunteers', 'Ole Miss Rebels', 'South Carolina Gamecocks', 'Arkansas Razorbacks', 'Kentucky Wildcats', 'Missouri Tigers', 'Mississippi State Bulldogs', 'Texas A&M Aggies', 'Florida Gators', 'Vanderbilt Commodores']
 
 var baseQueryURL = "http://api.giphy.com/v1/gifs/search?q=";
 var apiKey = "&api_key=dc6zaTOxFJmzC";
@@ -29,6 +29,7 @@ function renderButtons() {
 
 function queryGiphy() {
 
+  $('.row').removeClass('hidden');
   $('#gifs').empty();
 
   var team = $(this).attr('data-team');
