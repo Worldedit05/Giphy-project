@@ -1,22 +1,49 @@
-.team {
-  margin: 5px 10px;
+
+body {
+    background-image: url('../images/football-background.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
+
+.team {
+    margin: 5px 10px;
+}
+
 .navbar-default {
     background-color: #1266AB;
+    border-color: #094C83;
 }
+
 .navbar-default .navbar-brand {
     color: #fff;
 }
+
 .navbar-default .navbar-brand:hover {
     color: #7EB1DC;
     background-color: transparent;
 }
-.submitBtn {
+
+.well {
+    background: rgba(245, 245, 245, 0.8);
+}
+
+.panel {
+    background-color: #F5F5F5;
+}
+
+.btn-default {
+    background-color: #ccc;
+}
+
+#submitBtn {
     color: #fff;
     background-color: #FFAC3A;
     border-color: #FFBB5F;
 }
-.submitBtn:hover {
+
+#submitBtn:hover {
     color: #fff;
     background-color: #FF980B;
     border-color: #CA7500;
