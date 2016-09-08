@@ -1,4 +1,4 @@
-var topics = ['Auburn Tigers', 'Texas Longhorns', 'Alabama Crimson Tide', 'LSU Tigers', 'Georgia Bulldogs', 'Tennessee Volunteers', 'Ole Miss Rebels', 'South Carolina Gamecocks', 'Arkansas Razorbacks', 'Kentucky Wildcats', 'Missouri Tigers', 'Mississippi State Bulldogs', 'Texas A&M Aggies', 'Florida Gators', 'Vanderbilt Commodores']
+var topics = ['Auburn Tigers', 'Texas Longhorns', 'Alabama Crimson Tide', 'LSU Tigers', 'Georgia Bulldogs', 'Tennessee Volunteers', 'Ole Miss Rebels', 'South Carolina Gamecocks', 'Arkansas Razorbacks', 'Kentucky Wildcats', 'Missouri Tigers', 'Mississippi State Bulldogs', 'Texas A&M Aggies', 'Florida Gator', 'Vanderbilt Commodores']
 
 var baseQueryURL = "https://api.giphy.com/v1/gifs/search?q=";
 var apiKey = "&api_key=dc6zaTOxFJmzC";
@@ -22,6 +22,12 @@ $('#submitBtn').on('click', function(event) {
 
   renderButtons();
 
+  $('#teamInput').val('');
+})
+
+$('#clearInput').on('click', function() {
+
+  $('#teamInput').val('');
 })
 
 function renderButtons() {
@@ -48,7 +54,8 @@ function queryGiphy() {
     $('#gifs').empty();
 
     var team = $(this).attr('data-team');
-    var queryURL = baseQueryURL + team + limit + rating + offset + offsetCount + apiKey;
+    var queryURL = encodeURI(baseQueryURL + team + limit + rating + offset + offsetCount + apiKey);
+
     console.log(queryURL);
 
     $.ajax({
@@ -56,6 +63,19 @@ function queryGiphy() {
         method: 'GET'
     }).done(function(response) {
 
+        if (response.pagination.total_count == "0") {
+
+          var h = $('<h2>').text('Giphy returned no results');
+          var i = $('<h3>').text('Please select another team');
+
+          h.attr('class', 'text-center');
+          i.attr('class', 'text-center');
+          $('#gifs').append(h);
+          $('#gifs').append(i);
+
+          return false;
+        }
+        console.log(response);
         var results = response.data;
 
         for (var i = 0; i < results.length; i++) {
