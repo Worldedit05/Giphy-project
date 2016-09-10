@@ -23,8 +23,10 @@ $('#submitBtn').on('click', function(event) {
   // Grab the user's value from the text field
   //
   var newTeam = $('#teamInput').val().trim();
-  // Push it to the array
+  // Push it the value to the array
   topics.push(newTeam);
+  // Push 0 to the clickCount array
+  clickCount.push(0);
   // Render all new buttons
   renderButtons();
   // Clear the text field
@@ -99,7 +101,7 @@ function queryGiphy() {
             var teamImage = $('<img>');
 
             teamImage.attr({
-                'class': 'gif center-block',
+                'class': 'gif center-block img-responsive',
                 'src': results[i].images.fixed_height_still.url,
                 'data-still': results[i].images.fixed_height_still.url,
                 'data-animate': results[i].images.fixed_height.url,
