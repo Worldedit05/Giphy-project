@@ -48,3 +48,7 @@ body {
     background-color: #FF980B;
     border-color: #CA7500;
 }
+
+#well-content {
+    text-align: center;
+}
